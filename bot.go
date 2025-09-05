@@ -92,10 +92,10 @@ func main() {
 		return
 	}
 
-	dg.AddMessageCreateHandler(func(s *discordgo.Session, m *discordgo.MessageCreate) {
-		if m.Author.Bot {
-			return
-		}
+	dg.AddHandler(func(s *discordgo.Session, m *discordgo.MessageCreate) {
+    if m.Author.Bot {
+        return
+    }
 		content := m.Content
 		if strings.HasPrefix(content, "!ataque") {
 			args := strings.Fields(content)
